@@ -2,4 +2,5 @@
 #starts at 0,43; first is 5 wide; else are 7 wide, sampling every 7
 import re, PIL.Image
 im = PIL.Image.open('oxygen.png')
-print ''.join(map(chr,eval(re.findall('(\[[^\]]*\])', ''.join([chr(im.getpixel((i, 43))[0]) for i in range(0,im.getbbox()[2],7) if im.getpixel((i, 43))[0] == im.getpixel((i, 43))[1] == im.getpixel((i, 43))[2]]))[-1])))
+p = lambda j,k: im.getpixel((j,43))[k]
+print ''.join(map(chr,eval(re.findall('(\[[^\]]*\])', ''.join([chr(p(i,0)) for i in range(0,im.getbbox()[2],7) if p(i, 0) == p(i, 1) == p(i, 2)]))[-1])))
