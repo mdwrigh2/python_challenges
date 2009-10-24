@@ -9,3 +9,5 @@ for i in range(0,im.getbbox()[2],7):
     if color[0] == color[1] and color[1] == color[2]:
         s += chr(color[0])
 print ''.join(map(chr,eval(re.findall('(\[[^\]]*\])',s)[-1])))
+
+print ''.join(map(chr,eval(re.findall('(\[[^\]]*\])', ''.join([chr(pix[i, 43][0]) for i in range(0,im.getbbox()[2],7 if pix[i, 43][0] == pix[i, 43][1] == pix[i, 43][2]]))[-1])))
