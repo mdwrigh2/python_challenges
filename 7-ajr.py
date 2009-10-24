@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#starts at 0,43; first is 5 wide; else are 7 wide
+#starts at 0,43; first is 5 wide; else are 7 wide, sampling every 7
 import re, PIL.Image
 im = PIL.Image.open('oxygen.png')
 pix = im.load()
