@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from PIL import Image
+from PIL import Image, ImageDraw
 
 first= [
 146,399,163,403,170,393,169,391,166,386,170,381,170,371,170,355,169,346,167,335,170,329,170,320,170,
@@ -29,23 +29,9 @@ second = [
 77,155,81,148,87,140,96,138,105,141,110,136,111,126,113,129,118,117,128,114,137,115,146,114,155,115,
 158,121,157,128,156,134,157,136,156,136
 ]
-
-print len(first), len(second)
-print min(first), min(second)
-print max(first), max(second)
-
 im = Image.new("1",(max(first)+1,  max(first)+1), 0)
-pix = im.load()
-for i in xrange(len(first)/2):
-    print [first[2*i], first[2*i+1]]
-    pix[first[2*i], first[2*i+1]] = 255
+draw = ImageDraw.Draw(im)
+draw.line(first,fill=255)
+draw.line(second,fill=255)
+im.show()
 
-#im.show()
-
-im2 = Image.new("1",(max(second)+1,  max(second)+1), 0)
-pix2 = im2.load()
-for i in xrange(len(second)/2):
-    print [second[2*i], second[2*i+1]]
-    pix2[second[2*i], second[2*i+1]] = 255
-
-im2.show()
