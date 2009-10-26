@@ -4,9 +4,10 @@ z = zipfile.ZipFile('channel.zip')
 num = '90052.txt'
 s = ''
 while True:
-    print 'opening', num
+  try:
     a = z.open(num)
     num = str(re.findall('\d+',a.read())[-1])+'.txt'
     s += z.getinfo(num).comment
-    a.close()
+  except:
     print s
+    break
